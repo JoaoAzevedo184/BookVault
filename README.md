@@ -7,16 +7,18 @@
 ## 📋 Sobre o Projeto
 
 Repositório do projeto LiterAlura, um catálogo de livros interativo via console, desenvolvido durante a jornada ONE (Oracle Next Education) da Alura.
-Neste desafio, o programa consome dados de uma API de livros, manipula informações em JSON, armazena em banco de dados e permite ao usuário interagir com pelo menos 5 opções, como listar livros, buscar por autor, idioma, entre outras funcionalidades.
-
-
+Neste desafio, o programa consome dados da API Gutendex, manipula informações em JSON, armazena em banco de dados e permite ao usuário interagir com diversas opções, como listar livros, buscar por autor, idioma, entre outras funcionalidades.
 
 ## ✨ Funcionalidades
 
-### **Principais funcionalidades:**
+### Principais funcionalidades:
 
-
-5. **Taxas de câmbio atualizadas em tempo real**
+1. Listar livros disponíveis no catálogo
+2. Buscar livros por autor
+3. Filtrar livros por idioma
+4. Visualizar detalhes de um livro
+5. Adicionar livros favoritos
+6. Histórico de buscas e leituras
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -29,34 +31,39 @@ Neste desafio, o programa consome dados de uma API de livros, manipula informaç
 </div>
 
 - **Java 21** - Linguagem de programação principal
-- **API Gutendex** - Fornecimento de taxas de câmbio atualizadas
-- **PostgreSQL 17**
-- **SpringBoot 3**
-- **Biblioteca Gson** - Manipulação de dados em formato JSON
+- **API Gutendex** - Fonte dos dados dos livros
+- **PostgreSQL 17** - Banco de dados relacional
+- **SpringBoot 3** - Framework para aplicações Java 
 - **HttpClient do Java** - Realização de requisições HTTP para API
 - **Caracteres Unicode** - Criação de interfaces visuais com bordas e símbolos
 - **Emojis Unicode** - Aprimoramento da experiência do usuário
 
 ## 📊 Exemplo de Uso
 
-```
+```bash
+# Listar livros por autor
+Digite o nome do autor: Machado de Assis
 
+# Resultado
+1. Dom Casmurro - Machado de Assis [Português]
+2. Memórias Póstumas de Brás Cubas - Machado de Assis [Português]
+...
 ```
 
 ## 🔄 API Gutendex
 
-O projeto utiliza a API Gutendex para obter taxas de câmbio atualizadas em tempo real.
+O projeto utiliza a API Gutendex para obter informações atualizadas sobre livros.
 
-- **Documentação**: [https://www.exchangerate-api.com/docs/pair-conversion-requests](https://www.exchangerate-api.com/docs/pair-conversion-requests)
-- **Endpoint utilizado**: `https://v6.exchangerate-api.com/v6/API_KEY/pair/BASE/TARGET`
-- **Funcionalidades utilizadas**: Conversão direta entre pares de moedas
+- **Documentação**: [https://gutendex.com/docs/](https://gutendex.com/docs/)
+- **Endpoint utilizado**: `https://gutendex.com/books`
+- **Funcionalidades utilizadas**: Listagem, busca e filtragem de livros
 
 ## 🚀 Como Executar
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/Currency-Converter.git
-   cd Currency-Converter
+   git clone https://github.com/seu-usuario/bookvault.git
+   cd bookvault
    ```
 
 2. Compile o projeto (certifique-se de ter o JDK 21 instalado):
@@ -69,9 +76,9 @@ O projeto utiliza a API Gutendex para obter taxas de câmbio atualizadas em temp
    java -cp out Main
    ```
 
-4. Siga as instruções na interface do console para realizar conversões de moedas.
+4. Siga as instruções na interface do console para explorar o catálogo de livros.
 
-> **Nota**: Para utilizar a API ExchangeRate, você precisará obter uma chave de API gratuita em [https://www.exchangerate-api.com/](https://www.exchangerate-api.com/) e configurá-la no código.
+> **Nota**: Para utilizar a API Gutendex, não é necessário chave de API.
 
 ## 📂 Estrutura do Projeto
 
@@ -79,17 +86,17 @@ O projeto utiliza a API Gutendex para obter taxas de câmbio atualizadas em temp
 src/
 ├── Main.java                           # Classe principal com o método main
 ├── api/
-│   └── ExchangeApiClient.java          # Cliente para comunicação com a API ExchangeRate
+│   └── GutendexApiClient.java          # Cliente para comunicação com a API Gutendex
 ├── exception/
 │   └── ApiException.java               # Classe de exceção personalizada para erros da API
 ├── model/
-│   └── Currency.java                   # Modelo de dados para armazenar informações de moeda e taxas
+│   └── Book.java                       # Modelo de dados para armazenar informações dos livros
 ├── service/
-│   └── CurrencyService.java            # Serviço para realizar cálculos de conversão
+│   └── BookService.java                # Serviço para manipulação e busca de livros
 └── util/
     ├── ConsoleView.java                # Interface de usuário no console
-    ├── CurrencyConversionHistory.java  # Gerenciamento do histórico de conversões
-    └── FileGenerater.java              # Geração de arquivos para exportação do histórico
+    ├── BookHistory.java                # Gerenciamento do histórico de buscas/leitura
+    └── FileGenerator.java              # Geração de arquivos para exportação do histórico
 ```
 
 ## 🙏 Agradecimentos
@@ -101,5 +108,4 @@ src/
 ---  
 Desenvolvido por João Azevedo. Para mais informações, entre em contato:
 - **Gmail**: jonoffice37@gmail.com
-- **Linkedin**: www.linkedin.com/in/joao-victor-azevedo-181-sena
-- **Github**: https://github.com/JoaoAzevedo184
+- **Linkedin**: www.linkedin.com/in/joao-victor-azevedo-181-

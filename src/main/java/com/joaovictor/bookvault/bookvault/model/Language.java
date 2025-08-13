@@ -7,9 +7,9 @@ public enum Language {
     PT("pt"),
     DE("de");
 
-    String language;
+    private String language;
 
-    private Language(String language) {
+    Language(String language) {
         this.language = language;
     }
 
